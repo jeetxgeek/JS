@@ -27,3 +27,35 @@ let num = 32
 let nume = String(num)
 console.log(nume);
 console.log(typeof nume);
+
+//*************************************Operations*******************************************
+
+let value = 33
+let negval = -value
+
+// console.log(2+2);
+// console.log(2**3);
+// console.log(2*3);
+// console.log(2%3);
+// console.log(2/3);
+// console.log(2-3);
+
+let str1 = "hello"
+let str4 = " "
+let str2 = "jeetesh"
+let str3 = str1 + str4 + str2
+console.log(str3);
+
+console.log("1"+2);
+console.log("1"+2 + 2); //>>122
+console.log(1+2 + "2"); //>>32
+
+
+
+
+
+
+
+
+
+
