@@ -48,14 +48,12 @@ console.log(str3);
 
 console.log("1"+2);
 console.log("1"+2 + 2); //>>122
-console.log(1+2 + "2"); //>>32
+console.log(1+2 + "2"); //>>32 
+
+console.log(+true);
 
 
-
-
-
-
-
-
-
+// let count = 22
+// ++count
+// console.log(count);
 
