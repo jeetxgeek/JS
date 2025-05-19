@@ -22,3 +22,15 @@ user2.userEmail = "jeetesh@google.com"
 
 console.log(user.userEmail);
 console.log(user2.userEmail);
+
+
+// +-------------------------+
+// |                         |     
+// |                         |
+// |                         |
+// |         Heap            |
+// |                         |
+// |                         |
+// |                         |
+// |                         |
+// +-------------------------+
