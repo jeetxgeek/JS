@@ -29,3 +29,83 @@
     </div>
 </body>
 </html> 
+
+/* getElementById('title').style.color = 'red';  */ 
+/* // getElementById is a method of the document object that returns the element with the specified ID.
+
+// document.getElementById('title').style.color = 'red'; // This will change the color of the text with id 'title' to red.
+
+// document.querySelector('.heading').style.color = 'blue'; // This will change the color of the first element with class 'heading' to blue.
+
+// document.querySelectorAll('.list-item').forEach(item => item.style.color = 'green'); // This will change the color of all elements with class 'list-item' to green.
+
+// document.querySelectorAll('.list-item').forEach(item => item.style.color = 'green'); // This will change the color of all elements with class 'list-item' to green.
+
+//document.getElementsByClassName('list-item').forEach(item => item.style.color = 'green'); // This will change the color of all elements with class 'list-item' to green.
+
+// document.getElementsByTagName('h2').forEach(item => item.style.color = 'yellow'); // This will change the color of all <h2> elements to yellow.
+
+// document.getElementById('title').getAttribute('class'); // This will return the class attribute of the element with id 'title'.
+// document.getElementById('title').setAttribute('class', 'new-class'); // This will set the class attribute of the element with id 'title' to 'new-class'.
+
+//const titleElement = document.getElementById('title'); // This will get the element with id 'title'.
+
+//titleElement.style.color = 'red'; // This will change the color of the text with id 'title' to red. */
+
+/* document.querySelectorAll('.list-item').forEach(item => {
+    item.style.color = 'green';
+    item.style.fontSize = '20px';
+});// This will change the color of all elements with class 'list-item' to green and set their font size to 20px.
+
+document.querySelectorAll('.list-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.style.color = 'blue';
+    });
+}); // This will change the color of the clicked list item to blue.
+
+const temp = document.querySelectorAll('.list-item');
+
+temp.style.color = 'red' // This will not work because temp is a NodeList, not a single element. You need to loop through the NodeList to change the color of each item.
+
+temp[0].style.color = 'red'; // This will change the color of the first list item to red.
+
+temp.forEach(item => {
+    item.style.color = 'red'; // This will change the color of all list items to red.
+}); */
+
+/* const templist = document.getElementsByClassName('list-item')
+templist.foreach(funntion(li){
+    log(li);
+})// This will not work because getElementsByClassName returns a live HTMLCollection, not an array. You need to convert it to an array first.
+
+Array.from(templist).forEach(function(li) {
+    console.log(li);
+}); // This will convert the HTMLCollection to an array and then log each list item.
+
+const temp = document.querySelectorAll('.list-item');
+
+temp.forEach(function(li) {
+    console.log(li);
+}); // This will log each list item using querySelectorAll, which returns a static NodeList. */
+
+/* document.querySelectorAll('h2')//selects all <h2> elements
+
+const myh2 = document.querySelectorAll('h2');
+myh2.innerText 
+// This will not work because myh2 is a NodeList, not a single element.
+myh2[0].innerText 
+// This will get the inner text of the first <h2> element.
+myh2.forEach(function(h2) {
+    console.log(h2.innerText); // This will log the inner text of each <h2> element.
+});  
+
+//.textcontent helps to get or set the text content of an element, including its descendants, while .innerText only gets or sets the visible text content of an element, excluding any hidden elements.
+
+innerHTML
+//.innerHTML helps to get or set the HTML content of an element, including its descendants, while .textContent only gets or sets the text content of an element, excluding any HTML tags.
+document.querySelectorAll('h2').forEach(function(h2) {
+    console.log(h2.innerHTML); // This will log the HTML content of each <h2> element.
+    console.log(h2.textContent); // This will log the text content of each <h2> element.
+    console.log(h2.innerText); // This will log the visible text content of each <h2> element.
+});
+ */
