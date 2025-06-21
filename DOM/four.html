@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: rgb(67, 67, 67); color: white;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+</body>
+<script>
+    function addlanguage(langname){
+        const li = document.createElement('li'); // Create a new li element
+        li.innerHTML = `${langname}`; // Set the inner HTML of the li element
+        document.querySelector('.language').appendChild(li); // Append the li to the ul with class 'language'
+    }
+    addlanguage('python');
+    addlanguage('java');
+
+    function optimisedlang(langname) {
+        const li  = document.createElement('li'); // Create a new li element
+        li.appendChild(document.createTextNode(langname)); // Create a text node and append it to the li
+        document.querySelector('.language').appendChild(li); // Append the li to the ul with class 'language'
+
+    }
+    optimisedlang('c++');
+    optimisedlang('c#');
+
+    //function optimisedlang(langname) is a more efficient way to add languages to the list.
+    // It creates a text node and appends it to the li element, which is then appended to the ul.
+    // This avoids the need to use innerHTML, which can be less efficient and more prone to errors.
+
+    //edit
+    const secondlang = document.querySelector("li:nth-child(2)")
+    const newli = document.createElement('li');
+    newli.textContent = 'mojo'
+    secondlang.replaceWith(newli); // Replace the second li with the new li
+    // This will replace the second li element with a new li element containing the text 'mojo'.
+    // This is useful when you want to update the content of an existing element without creating a new one.
+
+    //edit
+    const firstlang = document.querySelector("li:nth-child(1)")
+    firstlang.outerHTML = '<li>typescript</li>'; // Replace the first li with a new li element containing the text 'typescript'
+
+    //remove
+    const lastlang = document.querySelector("li:last-child");
+    lastlang.remove(); // Remove the last li element from the list
+    // This will remove the last li element from the ul with class 'language'.
+</script>
+</html>
