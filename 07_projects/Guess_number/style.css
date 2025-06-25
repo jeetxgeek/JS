@@ -45,6 +45,18 @@ button {
   /* margin-left: 75px; */
 }
 
+#reset {
+  background-color: #161616;
+  color: #ffffff;
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  border-style: none;
+  margin-top: 50px;
+  /* margin-left: 75px; */
+}
+
 #guessField {
   color: #000;
   width: 250px;
