@@ -79,11 +79,7 @@ setInterval(function () {
   clock.innerHTML = date.toLocaleTimeString();
 }, 1000);
 
-
-
-
-
-
+//setInterval() is a method that calls a function or evaluates an expression at specified intervals (in milliseconds). It will continue until clearInterval() is called or the window is closed.
 
 
 
