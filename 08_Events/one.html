@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: b300;">
+    <h2>Amazzing Images
+    </h2>
+    <ul id="Images">
+        <li><img width="250px" height="300px" id="1" src="https://i.pinimg.com/736x/f0/68/5f/f0685f9dbbcf3c9be045cf59ca82f324.jpg" alt="photoshop"></li>
+        <li><img width="250px" height="300px" id="2" src="https://i.pinimg.com/736x/0e/2a/f7/0e2af7c7e091f7d33f06846f365a95ca.jpg" alt="phototshop"></li>
+        <li><img width="250px" height="300px" id="3" src="https://i.pinimg.com/736x/35/c1/96/35c196d5df292cfc83762dd812c4829a.jpg" alt="photoshop"></li>
+        <li><img width="250px" height="300px" id="4" src="https://i.pinimg.com/736x/79/bf/6d/79bf6d40852b5d1be88b459a209337d7.jpg" alt="photoshop"></li>
+        <li><img width="250px" height="300px" id="5" src="https://i.pinimg.com/736x/0e/8a/92/0e8a923250cbc6d3c818557fd3826fc2.jpg" alt="photoshop"></li>
+        <li><img width="250px" height="300px" id="6" src="https://i.pinimg.com/736x/16/75/24/167524c22cef04a2c66b7d77b2bd72de.jpg" alt="photoshop"></li>
+        <li><a style="color: aqua;" target="_blank" href="https://www.google.com/" id="google">GOOGLE</a></li>
+    </ul>
+</body>
+
+<script>
+//     document.getElementById("3").addEventListener("click", function() {
+//     alert("This is a Photoshop image.");
+// });
+
+//eventlistener is used to add an event handler to the specified element.
+//its syntax is element.addEventListener(event, function, Eventpropogation);
+
+//event is the event that you want to listen for.
+
+// The capturing phase is the phase in which the event is captured by the parent elements before it reaches the target element.
+//event object is an object that contains information about the event that occurred.
+//function is the function that will be called when the event occurs.
+
+// type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // false is used to specify that the event should not be captured during the capturing phase.
+// true is used to specify that the event should be captured during the capturing phase.
+
+
+//code
+
+//  document.getElementById("Images").addEventListener("click", function(element) {
+//     console.log("clicked inside the ul element");  
+// }, false);
+// document.getElementById("3").addEventListener("click", function(element) {
+//     console.log("clicked 3rd image");  
+// }, false); 
+
+
+//the above code adds an event listener to the ul element with id "Images".
+// When the ul element is clicked, it will log "clicked inside the ul element" to the console.
+// The second event listener is added to the image with id "3". 
+// When the image is clicked, it will log "clicked 3rd image" to the console.
+// * this is called event bubbling, where the event is first captured by the target element and then propagated to its parent elements. 
+// If you click on the image with id "3", it will log both "clicked inside the ul element" and "clicked 3rd image" to the console.
+// If you click on the ul element, it will only log "clicked inside the ul element" to the console.
+// use true in place of false in the addEventListener method to capture the event during the capturing phase.
+// to stop the event from propagating to the parent elements, you can use the stopPropagation() method on the event object.
+
+//code
+
+// document.getElementById("3").addEventListener("click", function(element) {
+//     console.log("clicked 3rd image");
+//     element.stopPropagation(); // this will stop the event from propagating to the parent elements.
+// }, false);
+
+// document.getElementById("google").addEventListener("click", function(element) {
+//     console.log("clicked google link");
+//     element.stopPropagation(); // this will stop the event from propagating to the parent elements.
+//     element.preventDefault(); // this will prevent the default action of the link, which is to navigate to the google website.
+// }, false);
+
+document.querySelector('#Images').addEventListener('click', function(event){
+    console.log(event.target.tagName); // this will log the tag name of the clicked element.
+    if (event.target.tagName === 'IMG') {
+        console.log(event.target.id); // this will log the id of the clicked image.
+        
+    }
+    let removeit = event.target.parentNode; // this will get the parent element of the clicked image.
+    removeit.remove();// this will remove the parent element of the clicked image from the DOM.
+    
+}, false)
+
+//in above code if we click beside 'google' or any image rather on it , it will remove everything from the DOM except google link. this is because the event.target will be the ul element and its parentNode will be the ul element itself.
+// if we click on the google link, it will remove the parent element of the clicked image, which is the li element containing the google link.
+
+// removeit.parentNode.removeChild(removeit); // this will also remove the parent element of the clicked image from the DOM. ie the ul element.
+</script>
+</html>
