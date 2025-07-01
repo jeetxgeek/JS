@@ -1,1 +1,51 @@
-<!-- asyn code theory -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async code</title>
+</head>
+<body>
+    <!-- Main heading -->
+    <h1>chai aur code</h1>
+
+    <!-- Button to stop any operation -->
+    <button id="stop">Stop</button>
+
+    <script>
+        // Create a new <h1> element
+        const msg = document.createElement('p');
+
+        // Add text inside the new heading
+        msg.innerHTML = "The heading will change after 5 seconds";
+
+
+        // Add the new heading to the body of the document
+        document.body.appendChild(msg);
+
+        // Function to simulate a blocking message (not actually blocking here)
+        const stop = function(){
+            console.log("This is a blocking code and will be displayed after 2 seconds");
+        }
+
+        // Function to change the text of the first <h1> element after 5 seconds
+        const changetext = function(){
+            document.querySelector('h1').innerHTML = "this js series";
+        }
+
+        // Asynchronously call changetext function after 5000ms (5 seconds)
+        const changeme = setTimeout(changetext, 5000);
+        document.querySelector('#stop').addEventListener('click', function(){
+            // Clear the timeout to stop the changetext function from executing
+            clearTimeout(changeme);
+            // Call the stop function
+            console.log("Stopped");
+            
+            stop();//this will be displayed in console immediately
+        });
+        
+
+        document
+    </script>
+</body>
+</html>

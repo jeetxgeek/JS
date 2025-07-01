@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown to Change</title>
+</head>
+<body>
+  <h1>chai aur code</h1>
+  <button id="stop">Stop</button>
+
+  <script>
+    // Create a paragraph and add to the body
+    const msg = document.createElement('p');
+    document.body.appendChild(msg);
+
+    // Initial countdown time in seconds
+    let count = 5;
+
+    // Show first message
+    msg.innerHTML = `The heading will change in ${count} seconds`;
+
+    // Start countdown
+    const countdownInterval = setInterval(() => {
+      count--;
+      if (count > 0) {
+        msg.innerHTML = `The heading will change in ${count} seconds`;
+      } else {
+        // Time is up: change heading and clear interval
+        document.querySelector('h1').innerHTML = "this js series";
+        msg.innerHTML = `The heading has been changed!`;
+        clearInterval(countdownInterval);
+      }
+    }, 1000); // runs every 1 second
+
+    // Optional: Stop button to cancel the change
+    document.getElementById("stop").addEventListener("click", () => {
+      clearInterval(countdownInterval);
+      msg.innerHTML = "Countdown stopped. Heading will not change.";
+    });
+  </script>
+</body>
+</html>

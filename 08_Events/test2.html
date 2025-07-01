@@ -1,0 +1,127 @@
+<!DOCTYPE html> <!-- Declares the document is HTML5 -->
+<html lang="en"> <!-- Sets language of document to English -->
+<head>
+  <meta charset="UTF-8"> <!-- Sets character encoding to UTF-8 -->
+  <title>Pomodoro Timer</title> <!-- Title shown on browser tab -->
+
+  <!-- Style block begins -->
+  <style>
+    body {
+      font-family: Arial, sans-serif; /* Sets font */
+      text-align: center;             /* Centers all content */
+      padding: 50px;                  /* Adds spacing around content */
+    }
+
+    h1 {
+      font-size: 2.5rem; /* Large font for heading */
+    }
+
+    #time {
+      font-size: 3rem;   /* Even larger font for countdown */
+      margin: 20px 0;    /* Vertical spacing */
+    }
+
+    #status {
+      font-size: 1.2rem; /* Medium text for status */
+      margin-bottom: 20px; /* Adds space below */
+    }
+
+    button {
+      padding: 10px 20px;           /* Adds internal space */
+      font-size: 1rem;              /* Sets text size */
+      margin: 10px;                 /* Adds space around buttons */
+      cursor: pointer;             /* Cursor changes to pointer on hover */
+      background: #007BFF;         /* Blue background */
+      color: white;                /* White text */
+      border: none;                /* Removes border */
+      border-radius: 5px;          /* Rounded corners */
+    }
+
+    button:hover {
+      background: #0056b3;         /* Darker blue when hovering */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Main heading -->
+  <h1>Pomodoro Timer 🍅</h1>
+
+  <!-- Message for current mode -->
+  <div id="status">Ready to Work!</div>
+
+  <!-- Countdown timer display -->
+  <div id="time">00:10</div>
+
+  <!-- Buttons -->
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+
+  <!-- JavaScript starts -->
+  <script>
+    // Initial timer settings (in seconds) for testing
+    let workTime = 10;    // 10 seconds for work (for demo)
+    let breakTime = 5;    // 5 seconds for break (for demo)
+
+    let isWork = true;             // Boolean to track mode: work or break
+    let secondsLeft = workTime;    // Start with work time
+
+    let timer; // To store the interval ID
+
+    // Grab the timer and status elements
+    const timeDisplay = document.getElementById("time");
+    const statusDisplay = document.getElementById("status");
+
+    // Function to format and update the time display
+    function updateDisplay() {
+      let mins = Math.floor(secondsLeft / 60);      // Get full minutes
+      let secs = secondsLeft % 60;                  // Get remaining seconds
+      timeDisplay.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    // Function to start the countdown timer
+    function startTimer() {
+      clearInterval(timer); // Stop any running timer first
+
+      // Start a new interval
+      timer = setInterval(() => {
+        if (secondsLeft > 0) {
+          secondsLeft--;     // Decrease time
+          updateDisplay();   // Refresh display
+        } else {
+          // Time's up: switch mode
+          isWork = !isWork;  // Toggle work/break
+          secondsLeft = isWork ? workTime : breakTime; // Reset timer
+          statusDisplay.innerText = isWork ? "Back to Work! 💪" : "Break Time! 😌";
+          updateDisplay(); // Refresh display
+        }
+      }, 1000); // Run every 1000ms (1 second)
+    }
+
+    // When Start button is clicked
+    document.getElementById("start").addEventListener("click", () => {
+      statusDisplay.innerText = isWork ? "Work in Progress..." : "Break Time...";
+      startTimer(); // Start countdown
+    });
+
+    // When Stop button is clicked
+    document.getElementById("stop").addEventListener("click", () => {
+      clearInterval(timer); // Stop countdown
+      statusDisplay.innerText = "Paused ⏸️"; // Show pause status
+    });
+
+    // When Reset button is clicked
+    document.getElementById("reset").addEventListener("click", () => {
+      clearInterval(timer);        // Stop countdown
+      isWork = true;               // Reset to work mode
+      secondsLeft = workTime;      // Reset time
+      updateDisplay();             // Update timer display
+      statusDisplay.innerText = "Ready to Work!"; // Reset status
+    });
+
+    // Initial display update when page loads
+    updateDisplay();
+  </script>
+</body>
+</html>
