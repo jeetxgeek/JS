@@ -130,3 +130,33 @@ asyncOperation();
 In this example, the callback function inside `setTimeout` forms a closure that keeps the variable `message` alive in the memory heap until the callback executes, even though `asyncOperation` has already returned.
 
 Understanding this interaction between callbacks and the memory heap is crucial for managing memory and avoiding leaks in asynchronous JavaScript code.
+
+## Difference Between Asynchronous and Synchronous Code
+
+| Aspect               | Synchronous Code                          | Asynchronous Code                          |
+|----------------------|------------------------------------------|--------------------------------------------|
+| Execution            | Executes line by line, blocking further code until current completes | Executes without blocking, allowing other code to run concurrently |
+| Call Stack           | Functions are pushed and popped in order, blocking the stack | Async operations offload to Web APIs, callbacks queued for later execution |
+| Blocking             | Blocks the main thread until completion  | Non-blocking, main thread remains free     |
+| Use Cases            | Simple, sequential tasks                  | Long-running tasks like network requests, timers, user interactions |
+| Example              | `console.log('A'); console.log('B');`    | `setTimeout(() => console.log('B'), 1000); console.log('A');` |
+
+### Example:
+
+Synchronous code example:
+
+```javascript
+console.log('Start');
+console.log('End');
+```
+
+Asynchronous code example:
+
+```javascript
+console.log('Start');
+setTimeout(() => {
+  console.log('End');
+}, 1000);
+```
+
+In the synchronous example, "Start" and "End" are logged immediately in order. In the asynchronous example, "Start" is logged first, and "End" is logged after 1 second, demonstrating non-blocking behavior.
