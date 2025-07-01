@@ -98,3 +98,35 @@ console.log('End');
 - After 2 seconds, the callback inside `setTimeout` is executed, printing the asynchronous message.
 
 This example demonstrates how JavaScript handles asynchronous operations without blocking the main thread, allowing other code to run while waiting for the asynchronous task to complete.
+
+## Callbacks and Memory Heap in Asynchronous JavaScript
+
+When an asynchronous function is called, the callback function associated with it is stored in the **memory heap** as a closure. This closure retains access to the variables and environment present at the time the asynchronous function was invoked.
+
+### How Memory Heap and Callbacks Interact:
+
+- When the async operation is initiated, the callback function is allocated memory in the heap.
+- The callback retains references to variables in its lexical scope, preventing them from being garbage collected until the callback is executed.
+- Once the async operation completes, the callback is moved to the callback queue.
+- When the event loop pushes the callback onto the call stack for execution, the callback uses the retained variables from the heap.
+- After the callback finishes execution and no longer references those variables, the memory can be freed by garbage collection.
+
+This mechanism ensures that asynchronous callbacks have access to the necessary data even after the original function has returned, by preserving the environment in the memory heap.
+
+### Example:
+
+```javascript
+function asyncOperation() {
+  let message = 'Hello from async callback!';
+
+  setTimeout(() => {
+    console.log(message); // The callback retains access to 'message' via closure in the heap
+  }, 1000);
+}
+
+asyncOperation();
+```
+
+In this example, the callback function inside `setTimeout` forms a closure that keeps the variable `message` alive in the memory heap until the callback executes, even though `asyncOperation` has already returned.
+
+Understanding this interaction between callbacks and the memory heap is crucial for managing memory and avoiding leaks in asynchronous JavaScript code.
