@@ -160,3 +160,41 @@ setTimeout(() => {
 ```
 
 In the synchronous example, "Start" and "End" are logged immediately in order. In the asynchronous example, "Start" is logged first, and "End" is logged after 1 second, demonstrating non-blocking behavior.
+
+## Difference Between Blocking and Non-Blocking Code
+
+| Aspect               | Blocking Code                            | Non-Blocking Code                        |
+|----------------------|----------------------------------------|-----------------------------------------|
+| Execution            | Blocks the execution thread until task completes | Allows other tasks to run concurrently  |
+| Impact on UI         | Freezes UI or main thread during execution | Keeps UI responsive and interactive     |
+| Use Cases            | Simple, quick tasks or critical sections | Long-running tasks like I/O, network requests |
+| Example              | Synchronous file read, heavy computations | Asynchronous file read, network calls   |
+
+### Example:
+
+Blocking code example:
+
+```javascript
+function blockingTask() {
+  const start = Date.now();
+  while (Date.now() - start < 2000) {
+    // Busy wait for 2 seconds
+  }
+  console.log('Blocking task finished');
+}
+console.log('Start');
+blockingTask();
+console.log('End');
+```
+
+Non-blocking code example:
+
+```javascript
+console.log('Start');
+setTimeout(() => {
+  console.log('Non-blocking task finished');
+}, 2000);
+console.log('End');
+```
+
+In the blocking example, the main thread is busy for 2 seconds, delaying the execution of subsequent code. In the non-blocking example, the main thread continues executing while the asynchronous task completes in the background.
