@@ -5,11 +5,11 @@ const randomColor = function () {
   let color = '#';
   for (let i = 0; i < 6; i++) {
     color += hex[Math.floor(Math.random() * 16)];
-  }
+  }// this will generate random values from 0 to 15 
   return color;
 };
 
-let intervalId;
+let intervalId; //global declaration
 const startChangingColor = function () {
   if (!intervalId) {
     intervalId = setInterval(changeBgColor, 1000);
