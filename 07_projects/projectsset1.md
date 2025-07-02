@@ -245,7 +245,7 @@ document.querySelector('#stop').addEventListener('click', stopChangingColor);
 
 ```
 
-##Project 5 JS Code
+##Project 6 JS Code
 ```javascript
 //keyboard checker
 const insert = document.getElementById('insert')
