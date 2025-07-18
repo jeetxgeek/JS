@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch Test</title>
+</head>
+<body>
+  <script>
+
+    //Here’s how you can manually read the binary chunks:
+
+    fetch('https://api.github.com/users/hiteshchoudhary')
+  .then(response => {
+    const reader = response.body.getReader();
+    return reader.read(); // reads the first chunk
+  })
+  .then(({ value, done }) => {
+    console.log(value); // Uint8Array of binary data
+    console.log(done);  // false (unless end of stream)
+  });
+
+  </script>
+</body>
+</html>
