@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebSocket Test</title>
+</head>
+<body>
+  <h1>WebSocket Test</h1>
+  <button id="sendBtn">Send Message</button>
+
+  <script>
+    const socket = new WebSocket("wss://www.eraah.org");
+
+    socket.onopen = () => {
+      console.log("Connected to WebSocket!");
+
+      // Optional: You can send an initial message here if you want
+      // socket.send(JSON.stringify({ type: "text", text: "Hello there!" }));
+    };
+
+    socket.onmessage = (event) => {
+      console.log("Message:", event.data);
+    };
+
+    socket.onerror = (error) => {
+      console.error("WebSocket error:", error);
+    };
+
+    socket.onclose = () => {
+      console.log("WebSocket connection closed");
+    };
+
+    // 🟢 THIS is where we add the message-sending part
+    document.getElementById("sendBtn").addEventListener("click", () => {
+      if (socket.readyState === WebSocket.OPEN) {
+        const message = {
+          type: "text",
+          text: "Tell me more about your cause"
+        };
+        socket.send(JSON.stringify(message));
+        console.log("Message sent:", message);
+      } else {
+        console.warn("WebSocket not connected yet.");
+      }
+    });
+  </script>
+</body>
+</html>
