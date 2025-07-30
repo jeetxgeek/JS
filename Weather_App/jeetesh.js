@@ -5,17 +5,7 @@ const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 
-function updateBackground(temp) {
-  const body = document.body;
 
-  if (temp <= 10) {
-    body.style.background = "linear-gradient(135deg, #74ebd5, #acb6e5)"; // Cold
-  } else if (temp > 10 && temp <= 25) {
-    body.style.background = "linear-gradient(135deg, #fddb92, #d1fdff)"; // Moderate
-  } else {
-    body.style.background = "linear-gradient(135deg, #f5576c, #f093fb)"; // Hot
-  }
-}
 
 async function checkWeather(city) {
   const response = await fetch(apiUrl + city + `&appid=${apiKey}`);

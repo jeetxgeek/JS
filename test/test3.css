@@ -1,0 +1,61 @@
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(1.5px);
+}
+
+.glass {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 500px;
+    width: 350px;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 15px;
+    color: white; /* Make text visible */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    z-index: 2; /* Ensure it shows above the background */
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+
+}
+
+.name{
+    padding: 5px;
+    height: 25px;
+    width: 90%;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.173);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    font-size: 16px;  
+    
+    transition: transform 0.3s ease, background 0.3s ease;
+
+}
+
+::placeholder {
+    color: white;
+    opacity: 1; 
+} /* Make sure it's fully visible*/
+
+.name:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale3d(1.05, 1.05, 1);
+}
+
+.name:focus {
+    outline: none;
+    /* box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff; */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+
