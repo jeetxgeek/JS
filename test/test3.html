@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="test3.css">    
 </head>
 <body>
+    <audio id="bg-audio" autoplay loop>
+  <source src="MDMA _ Arcadia _prod.  Cade__slowed + reverb + 432hz_.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+    <button onclick="document.getElementById('bg-audio').play()">Start Music</button>
+
     <img class="background" src="minimalist.jpg" alt="background" >
     <div class="glass">
         <H1>Hello</H1>
@@ -18,4 +24,11 @@
     </div>
 
 </body>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bg-audio');
+    audio.volume = 0.25; // Set volume from 0.0 to 1.0 (10% volume)
+  });
+</script>
 </html>
